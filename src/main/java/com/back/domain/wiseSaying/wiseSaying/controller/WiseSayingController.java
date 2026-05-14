@@ -5,6 +5,7 @@ import com.back.domain.wiseSaying.wiseSaying.service.WiseSayingService;
 import com.back.standard.util.service.MarkdownService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,6 +54,7 @@ public class WiseSayingController {
 
     @GetMapping("/wiseSayings/{id}")
     @ResponseBody
+    @Transactional
     public String detail(@PathVariable int id) {
         WiseSaying wiseSaying = wiseSayingService.findById(id).get();
 
